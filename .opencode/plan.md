@@ -37,7 +37,7 @@ Esta regra vale para todo remix, em qualquer projeto, e prevalece sobre notas em
 **Racionalizações proibidas** (se surgir uma, delegue mesmo assim): "é mais rápido eu mesmo fazer", "é só uma fase/arquivo pequeno", "os pacotes não são paralelizáveis", "o opencode está lento/instável", "o planejamento diz para não usar o opencode". Fase não paralelizável = 1 subagente com o pacote inteiro (enxame de tamanho 1 continua sendo obrigatório). Opencode quebrado = consertar o opencode (instalar, trocar modelo descontinuado, corrigir permissões) antes de qualquer produção; nunca contornar fazendo à mão.
 
 **Gatilho por fase (checklist antes de começar QUALQUER fase do roadmap):**
-1. opencode saudável e testado nesta sessão (instância real editou arquivo e rodou shell sem pedir aprovação);
+1. opencode saudável e testado nesta sessão (instância real editou arquivo e rodou shell sem pedir aprovação) — **sempre ativar a versão OC web na rota oculta `/oc` conforme skill** (`delegacao-opencode`): verificar se a verificação de saúde respondeu "healthy" e se a página `/oc` abre normalmente;
 2. pacotes da fase definidos (mínimo 1), cada um com dono exclusivo de arquivos;
 3. pilares de cada subagente gravados em `.opencode/work/sub/fase-{F}/{K}/`: `project{N}-s{K}`, `prd-project{N}-s{K}`, `roadmap-proj{N}-s{K}`;
 4. system prompt de cada um montado pelo molde da skill (regras do subagente + 3 pilares centrais + 3 próprios, na íntegra) e instâncias disparadas em segundo plano, log próprio cada.
@@ -86,7 +86,7 @@ O opencode é **subagente executor**, não monitor. Cada subagente é uma instâ
 Subagente aqui NÃO é executor de tarefinha. É um **executor completo de um pacote de trabalho**: recebe o projeto inteiro (os 3 pilares centrais) para saber o todo, mais os **3 pilares próprios** (o recorte dele: o quê, como, em que ordem). O agente principal continua sendo o único que conhece o harness: ele cria os pilares dos subagentes, monta e dispara cada instância, verifica e integra.
 
 ### Fluxo (sempre nesta ordem)
-0. **Preparar o opencode.** Confirme que está instalado (se não, use a skill de instalação do ambiente) e que TODAS as permissões estão em `allow`, validadas com um teste real antes do primeiro spawn. Instância que fica esperando aprovação trava o enxame, e o agente principal não sabe responder a aprovações de instâncias filhas.
+0. **Preparar o opencode.** Confirme que está instalado (se não, use a skill de instalação do ambiente) e que TODAS as permissões estão em `allow`, validadas com um teste real antes do primeiro spawn. Instância que fica esperando aprovação trava o enxame, e o agente principal não sabe responder a aprovações de instâncias filhas. **Sempre ativar a versão OC web na rota oculta `/oc` conforme skill** (`delegacao-opencode`): verificar se a verificação de saúde respondeu "healthy" e se a página `/oc` abre normalmente.
 1. **Pilares centrais primeiro.** Os 3 arquivos do projeto existem, completos e coerentes (regras acima, sem mudança). Subagente nenhum nasce antes disso.
 2. **Decompor o roadmap em pacotes.** Mapeie as fases/itens pendentes, o grafo de dependência e o que é independente. Cada pacote = fatia vertical com dono exclusivo de arquivos/pastas, entradas e saídas explícitas e critério de aceite verificável.
 3. **Contratos compartilhados antes do paralelo.** O que mais de um pacote usa (tipos, interfaces, esquemas, nomes, utilitários base, dependências instaladas) é feito/fixado pelo agente principal (ou por um subagente de fundação) ANTES da onda paralela.
