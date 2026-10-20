@@ -530,7 +530,7 @@ Config atual (`opencode.json`):
       "enabled": true
     }
   },
-  "model": "opencode/muse-spark-1.3-contributor-free"
+  "model": "opencode/deepseek-v4.1-flash-free"
 }
 ```
 

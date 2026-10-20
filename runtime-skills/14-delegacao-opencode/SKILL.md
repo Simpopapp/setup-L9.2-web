@@ -47,7 +47,7 @@ funcionamento antes de qualquer entrega.
 
 ## Modelo
 
-- `opencode.json` define modelo free local (ex.: `muse-spark-1.3-contributor-free`).
+- `opencode.json` define modelo free local (ex.: `deepseek-v4.1-flash-free`).
   Não usar apikey no opencode: corre localmente com modelos free.
 
 ## Regras
