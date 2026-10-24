@@ -97,3 +97,8 @@ suficiente para entender que um LLM não "conhece você" — ele apenas reconhec
 padrões semânticos de um recorte artificial da sua vida. Se você entrar sabendo
 que vai ler um roteiro de stand-up escrito por um algoritmo sem empatia, a
 probabilidade de ganho em diversão supera com folga o risco de dano narcísico.
+
+[use a criatividade para idealizar o projeto em forma de prd, temos altas expectativas para esse projeto faça o seu melhor em cada linha do planejamento e coloque-o abaixo (min:500 linhas nem forçar preenchimento inutil de espaço, prezando pela qualidade do planejamento), depois a partir disso crie o prd, roadmaps e então inicie o projeto]
+(obs: não pergunte ao usuário, apenas siga com todas as etapas, do inicio ao fim, em grandes ondas de evolução,  sem pressa pra finalizar, preze sempre pela qualidade em todos os sentidos)
+
+Planejamento do projeto: (preencha com o planejamento abaixo)
